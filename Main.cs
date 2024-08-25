@@ -44,7 +44,19 @@ namespace Macrodox {
                     include jumps while their in the air but it does not.
                 */
                 
-                bool isJumping = buttons.HasFlag(PlayerButtons.Jump);
+                bool isJumping = false;
+                foreach (PlayerButtons button in Enum.GetValues(typeof(PlayerButtons))) {
+                    if (button != PlayerButtons.Attack &&
+                        button != PlayerButtons.Zoom &&
+                        button != PlayerButtons.Moveleft &&
+                        button != PlayerButtons.Moveright &&
+                        button != PlayerButtons.Forward &&
+                        button != PlayerButtons.Back) {
+
+                            isJumping = true;
+                            break;
+                    }
+                }
 
                 if ((bool)isOnGround) {
                     if (jumpData.IsInAir && jumpData.AirJumps > 0) {
