@@ -1,0 +1,4 @@
+```
+/macrodox <name>
+/macrodoxall
+```
